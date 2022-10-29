@@ -3,8 +3,9 @@
 import 'package:covid_tracker/util/colors.dart';
 import 'package:covid_tracker/util/style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:math' as math;
-import 'world_state_page.dart';
+import 'worldState/world_state_page.dart';
 
 class SpalashPage extends StatefulWidget {
   static const routeName = 'spalash';
@@ -47,8 +48,8 @@ class _SpalashPageState extends State<SpalashPage>
               animation: _controller,
               child: Image.asset(
                 'images/virus.png',
-                height: 150,
-                width: 150,
+                height: 150.h,
+                width: 150.w,
               ),
               builder: (context, child) {
                 return Transform.rotate(
