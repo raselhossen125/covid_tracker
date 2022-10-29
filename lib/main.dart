@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:covid_tracker/route/my_app_route.dart';
+import 'package:covid_tracker/views/spalash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
+
+import 'views/world_state_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,14 +21,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoute.spalashPageRoute,
-      getPages: MyRoute.pages,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      initialRoute: SpalashPage.routeName,
+      routes: {
+        SpalashPage.routeName: (context) => SpalashPage(),
+        WorldStatePage.routeName: (context) => WorldStatePage(),
+      },
     );
   }
 }

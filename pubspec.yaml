@@ -38,9 +38,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   pie_chart: ^5.3.2
   http:
+  provider:
   flutter_spinkit: ^5.1.0
   shimmer: ^2.0.0
-  get:
   shared_preferences: ^2.0.15
 
 dev_dependencies:

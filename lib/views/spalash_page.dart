@@ -4,10 +4,11 @@ import 'package:covid_tracker/util/colors.dart';
 import 'package:covid_tracker/util/style.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-import 'package:get/get.dart';
-import '../route/my_app_route.dart';
+import 'world_state_page.dart';
 
 class SpalashPage extends StatefulWidget {
+  static const routeName = 'spalash';
+
   @override
   State<SpalashPage> createState() => _SpalashPageState();
 }
@@ -15,13 +16,13 @@ class SpalashPage extends StatefulWidget {
 class _SpalashPageState extends State<SpalashPage>
     with TickerProviderStateMixin {
   late final _controller =
-      AnimationController(vsync: this, duration: Duration(seconds: 3))
+      AnimationController(vsync: this, duration: Duration(seconds: 5))
         ..repeat();
 
   @override
   void initState() {
     Future.delayed(Duration(seconds: 3), () {
-      Get.offNamed(MyRoute.worldStatePageRoute);
+      Navigator.of(context).pushReplacementNamed(WorldStatePage.routeName);
     });
     super.initState();
   }
@@ -56,9 +57,7 @@ class _SpalashPageState extends State<SpalashPage>
                 );
               },
             ),
-            SizedBox(
-              height: size.height * 0.15
-            ),
+            SizedBox(height: size.height * 0.15),
             Text(
               'Covid 19',
               style: mediamBold,
