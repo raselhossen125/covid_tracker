@@ -1,21 +1,40 @@
-// ignore_for_file: file_names, empty_catches, avoid_print
+// ignore_for_file: file_names, empty_catches, avoid_print, unused_local_variable, prefer_typing_uninitialized_variables
 
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import '../network/endpoints.dart';
 import '../views/worldState/worldState_model.dart';
 
 class WorldStateProvider extends ChangeNotifier {
-  Future<WorldStateModel> getWorldStateRecords() async {
-    final url = Uri.parse(Endpoints.worldStateApi);
-    final response = await http.get(url);
+  void change() {
+    notifyListeners();
+  }
 
-    if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
-      return WorldStateModel.fromJson(data);
-    } else {
-      throw Exception('Error');
+  Future<List<dynamic>> getAllCountries() async {
+    var data;
+    try {
+      final response = await Dio().get(Endpoints.countriesListApi);
+      data = response.data;
+      if (response.statusCode == 200) {
+        return data;
+      } else {
+        return data;
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<WorldStateModel> getWorldStateRecods() async {
+    try {
+      final response = await Dio().get(Endpoints.worldStateApi);
+      if (response.statusCode == 200) {
+        return WorldStateModel.fromJson(response.data);
+      } else {
+        throw Exception('Error');
+      }
+    } catch (e) {
+      rethrow;
     }
   }
 }

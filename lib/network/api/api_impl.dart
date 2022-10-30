@@ -1,5 +1,7 @@
 import 'package:covid_tracker/views/worldState/worldState_model.dart';
+import 'package:dio/dio.dart';
 import '../dio/dio_client.dart';
+import '../endpoints.dart';
 import 'api.dart';
 
 class ApiImplement extends Api {
@@ -9,8 +11,13 @@ class ApiImplement extends Api {
   ApiImplement({required this.dioClient});
 
   @override
-  Future<WorldStateModel> getWorldStateApi() {
-    throw UnimplementedError();
+  Future<WorldStateModel> getWorldStateApi() async {
+    try {
+      final Response response = await dioClient.get(Endpoints.worldStateApi);
+      return WorldStateModel.fromJson(response.data);
+    } catch (e) {
+      rethrow;
+    }
   }
 
   // @override

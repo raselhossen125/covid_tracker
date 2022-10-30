@@ -9,6 +9,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:provider/provider.dart';
 import '../../provider/worldState_provider.dart';
+import '../countryList/country_list_page.dart';
 
 class WorldStatePage extends StatefulWidget {
   static const routeName = 'world-state';
@@ -32,16 +33,17 @@ class _WorldStatePageState extends State<WorldStatePage>
       backgroundColor: bgColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.r),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        child: Center(
+          child: ListView(
+            shrinkWrap: true,
             children: [
-              SizedBox(height: 70.h),
+              SizedBox(height: 40.h),
               FutureBuilder(
-                future: provider.getWorldStateRecords(),
+                future: provider.getWorldStateRecods(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
                           height: 170,
@@ -51,8 +53,8 @@ class _WorldStatePageState extends State<WorldStatePage>
                                   double.parse(snapshot.data!.cases.toString()),
                               'Recover': double.parse(
                                   snapshot.data!.recovered.toString()),
-                              'Death': double.parse(
-                                  snapshot.data!.deaths.toString()),
+                              'Death':
+                                  double.parse(snapshot.data!.deaths.toString()),
                             },
                             chartValuesOptions: ChartValuesOptions(
                                 showChartValuesInPercentage: true),
@@ -93,6 +95,10 @@ class _WorldStatePageState extends State<WorldStatePage>
                                       value: snapshot.data!.deaths.toString()),
                                   Divider(),
                                   CustomCard(
+                                      title: 'Active',
+                                      value: snapshot.data!.active.toString()),
+                                  Divider(),
+                                  CustomCard(
                                       title: 'Critical',
                                       value: snapshot.data!.critical.toString()),
                                   Divider(),
@@ -118,17 +124,21 @@ class _WorldStatePageState extends State<WorldStatePage>
                         SizedBox(height: 50.h),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 2.r),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 50.h,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16.r),
-                              color: Colors.black,
-                            ),
-                            child: Text(
-                              'Track Countries',
-                              style: smallBoldW,
+                          child: InkWell(
+                            onTap: () => Navigator.of(context)
+                                .pushNamed(CountryListPage.routeName),
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: 50.h,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16.r),
+                                color: Colors.black,
+                              ),
+                              child: Text(
+                                'Track Countries',
+                                style: smallBoldW,
+                              ),
                             ),
                           ),
                         ),
@@ -136,11 +146,9 @@ class _WorldStatePageState extends State<WorldStatePage>
                       ],
                     );
                   } else {
-                    return Center(
-                      child: SpinKitFadingCircle(
-                        color: Colors.black,
-                        controller: _controller,
-                      ),
+                    return SpinKitFadingCircle(
+                      color: Colors.black,
+                      controller: _controller,
                     );
                   }
                 },

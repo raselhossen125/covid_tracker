@@ -47,27 +47,27 @@ class WorldStateModel {
       this.affectedCountries});
 
   WorldStateModel.fromJson(Map<String, dynamic> json) {
-    updated = json['updated'];
-    cases = json['cases'];
-    todayCases = json['todayCases'];
-    deaths = json['deaths'];
-    todayDeaths = json['todayDeaths'];
-    recovered = json['recovered'];
-    todayRecovered = json['todayRecovered'];
-    active = json['active'];
-    critical = json['critical'];
-    casesPerOneMillion = json['casesPerOneMillion'];
-    deathsPerOneMillion = json['deathsPerOneMillion'];
-    tests = json['tests'];
-    testsPerOneMillion = json['testsPerOneMillion'];
-    population = json['population'];
-    oneCasePerPeople = json['oneCasePerPeople'];
-    oneDeathPerPeople = json['oneDeathPerPeople'];
-    oneTestPerPeople = json['oneTestPerPeople'];
-    activePerOneMillion = json['activePerOneMillion'];
-    recoveredPerOneMillion = json['recoveredPerOneMillion'];
-    criticalPerOneMillion = json['criticalPerOneMillion'];
-    affectedCountries = json['affectedCountries'];
+    updated = json['updated'] ?? 0;
+    cases = json['cases'] ?? 0;
+    todayCases = json['todayCases'] ?? 0;
+    deaths = json['deaths'] ?? 0;
+    todayDeaths = json['todayDeaths'] ?? 0;
+    recovered = json['recovered'] ?? 0;
+    todayRecovered = json['todayRecovered'] ?? 0;
+    active = json['active'] ?? 0;
+    critical = json['critical'] ?? 0;
+    casesPerOneMillion = json['casesPerOneMillion'] ?? 0;
+    deathsPerOneMillion = json['deathsPerOneMillion'] ?? 0.0;
+    tests = json['tests'] ?? 0;
+    testsPerOneMillion = json['testsPerOneMillion'] ?? 0.0;
+    population = json['population'] ?? 0;
+    oneCasePerPeople = json['oneCasePerPeople'] ?? 0;
+    oneDeathPerPeople = json['oneDeathPerPeople'] ?? 0;
+    oneTestPerPeople = json['oneTestPerPeople'] ?? 0;
+    activePerOneMillion = json['activePerOneMillion'] ?? 0.0;
+    recoveredPerOneMillion = json['recoveredPerOneMillion'] ?? 0.0;
+    criticalPerOneMillion = json['criticalPerOneMillion'] ?? 0.0;
+    affectedCountries = json['affectedCountries'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {
