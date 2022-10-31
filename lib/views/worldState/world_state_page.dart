@@ -68,15 +68,7 @@ class _WorldStatePageState extends State<WorldStatePage>
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 2.r),
                           child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15.0),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      spreadRadius: 3.0,
-                                      blurRadius: 3.0)
-                                ],
-                                color: Colors.white),
+                            decoration: myDecoration,
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 5, vertical: 5),
@@ -142,7 +134,6 @@ class _WorldStatePageState extends State<WorldStatePage>
                             ),
                           ),
                         ),
-                        SizedBox(height: 20.h),
                       ],
                     );
                   } else {
