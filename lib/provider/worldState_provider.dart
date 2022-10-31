@@ -3,24 +3,24 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import '../network/endpoints.dart';
+import '../views/countryList/country_model.dart';
 import '../views/worldState/worldState_model.dart';
 
 class WorldStateProvider extends ChangeNotifier {
-  WorldStateModel? worldStateModel;
-  
-  Future<WorldStateModel?> getWorldStateRecods() async {
+  // CountryModel? countryModel;
+  List<CountryModel> countryModel = [];
+
+  Future<WorldStateModel> getWorldStateRecods() async {
     try {
       final response = await Dio().get(Endpoints.worldStateApi);
       if (response.statusCode == 200) {
-        print(response.data);
         return WorldStateModel.fromJson(response.data);
       } else {
         throw Exception('Error');
       }
     } catch (e) {
-      print(e.toString());
+      rethrow;
     }
-    return worldStateModel;
   }
 
   Future<List<dynamic>> getAllCountries() async {

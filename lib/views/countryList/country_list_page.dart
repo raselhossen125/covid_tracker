@@ -95,8 +95,8 @@ class CountryListPage extends StatelessWidget {
                     todayRecovered: countryM['todayRecovered'] ?? 0,
                     totalCases: countryM['cases'] ?? 0,
                     totalDeaths: countryM['deaths'] ?? 0,
-                    totalRecovered: countryM['recovered'] ?? 0, 
-                    population: countryM['population'] ?? 0, 
+                    totalRecovered: countryM['recovered'] ?? 0,
+                    population: countryM['population'] ?? 0,
                     flag: countryM['countryInfo']['flag'] ?? '',
                   ),
                 ));
