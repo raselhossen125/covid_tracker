@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'colors.dart';
+
 var btnStyle = TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.white,
@@ -54,6 +56,12 @@ var mediamBold = TextStyle(
   fontSize: 18.sp,
 );
 
+var appColor18w700 = TextStyle(
+  color: appColor,
+  fontWeight: FontWeight.w700,
+  fontSize: 18.sp,
+);
+
 var mediamBoldW = TextStyle(
   color: Colors.white,
   fontWeight: FontWeight.bold,
@@ -87,3 +95,13 @@ var verylargeBoldw = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 30.sp,
 );
+
+var myDecoration = BoxDecoration(
+    borderRadius: BorderRadius.circular(15.0),
+    boxShadow: [
+      BoxShadow(
+          color: Colors.grey.withOpacity(0.2),
+          spreadRadius: 3.0,
+          blurRadius: 3.0)
+    ],
+    color: Colors.white);

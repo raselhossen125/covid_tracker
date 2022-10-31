@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'provider/worldState_provider.dart';
 import 'views/countryList/country_list_page.dart';
+import 'views/details/details_page.dart';
 import 'views/worldState/world_state_page.dart';
 
 void main() {
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
             SpalashPage.routeName: (context) => SpalashPage(),
             WorldStatePage.routeName: (context) => WorldStatePage(),
             CountryListPage.routeName: (context) => CountryListPage(),
+            // DetailsPage.routeName: (context) => DetailsPage(),
           },
         );
       },
