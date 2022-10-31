@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../../provider/worldState_provider.dart';
+import '../../util/style.dart';
 import '../../widgets/country_page_shimmer_effect.dart';
 
 class CountryListPage extends StatelessWidget {
@@ -74,23 +75,20 @@ class CountryListPage extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 8.r),
       child: Container(
+        alignment: Alignment.center,
         width: double.infinity,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.r),
             border: Border.all(color: Colors.black.withOpacity(0.10))),
-        child: SizedBox(
-          height: 65.h,
-          child: Center(
-            child: ListTile(
-              leading: SizedBox(
-                height: 50.h,
-                width: 50.w,
-                child: Image.network(countryM['countryInfo']['flag']),
-              ),
-              title: Text(countryM['country']),
-              subtitle: Text(countryM['cases'].toString()),
-            ),
+        child: ListTile(
+          dense: true,
+          leading: SizedBox(
+            height: 50.h,
+            width: 50.w,
+            child: Image.network(countryM['countryInfo']['flag']),
           ),
+          title: Text(countryM['country'], style: black14w500),
+          subtitle: Text(countryM['cases'].toString(), style: grey14w400),
         ),
       ),
     );

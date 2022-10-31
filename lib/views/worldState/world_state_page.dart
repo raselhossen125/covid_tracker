@@ -37,7 +37,7 @@ class _WorldStatePageState extends State<WorldStatePage>
           child: ListView(
             shrinkWrap: true,
             children: [
-              SizedBox(height: 40.h),
+              SizedBox(height: 20.h),
               FutureBuilder(
                 future: provider.getWorldStateRecods(),
                 builder: (context, snapshot) {

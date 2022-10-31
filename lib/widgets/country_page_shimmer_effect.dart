@@ -21,28 +21,23 @@ class CountryPageShimmerEffect extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.r),
                   border: Border.all(color: Colors.black.withOpacity(0.10))),
-              child: SizedBox(
-                height: 65.h,
-                child: Center(
-                  child: ListTile(
-                    leading: SizedBox(
-                      height: 50.h,
-                      width: 50.w,
-                      child: Container(
-                      color: Colors.black.withOpacity(0.50),
-                    ),
-                    ),
-                    title: Container(
-                      height: 10.h,
-                      width: double.infinity,
-                      color: Colors.black.withOpacity(0.50),
-                    ),
-                    subtitle: Container(
-                      height: 10.h,
-                      width: double.infinity,
-                      color: Colors.black.withOpacity(0.50),
-                    ),
-                  ),
+              child: ListTile(
+                leading: SizedBox(
+                  height: 50.h,
+                  width: 50.w,
+                  child: Container(
+                  color: Colors.black.withOpacity(0.50),
+                ),
+                ),
+                title: Container(
+                  height: 10.h,
+                  width: double.infinity,
+                  color: Colors.black.withOpacity(0.50),
+                ),
+                subtitle: Container(
+                  height: 10.h,
+                  width: double.infinity,
+                  color: Colors.black.withOpacity(0.50),
                 ),
               ),
             ),

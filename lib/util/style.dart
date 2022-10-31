@@ -25,6 +25,18 @@ var smallBold = TextStyle(
   fontSize: 16.sp,
 );
 
+var black14w500 = TextStyle(
+  color: Colors.black,
+  fontWeight: FontWeight.w500,
+  fontSize: 16.sp,
+);
+
+var grey14w400 = TextStyle(
+  color: Colors.grey,
+  fontWeight: FontWeight.w400,
+  fontSize: 14.sp,
+);
+
 var smallBoldW = TextStyle(
   color: Colors.white,
   fontWeight: FontWeight.bold,

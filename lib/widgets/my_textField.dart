@@ -24,7 +24,7 @@ class _MyTextFieldState extends State<MyTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onChanged: (value) {
+      onChanged: (onchanges) {
         setState(() {});
       },
       keyboardType: widget.keyBordType,
