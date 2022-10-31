@@ -6,8 +6,21 @@ import '../network/endpoints.dart';
 import '../views/worldState/worldState_model.dart';
 
 class WorldStateProvider extends ChangeNotifier {
-  void change() {
-    notifyListeners();
+  WorldStateModel? worldStateModel;
+  
+  Future<WorldStateModel?> getWorldStateRecods() async {
+    try {
+      final response = await Dio().get(Endpoints.worldStateApi);
+      if (response.statusCode == 200) {
+        print(response.data);
+        return WorldStateModel.fromJson(response.data);
+      } else {
+        throw Exception('Error');
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+    return worldStateModel;
   }
 
   Future<List<dynamic>> getAllCountries() async {
@@ -19,19 +32,6 @@ class WorldStateProvider extends ChangeNotifier {
         return data;
       } else {
         return data;
-      }
-    } catch (e) {
-      rethrow;
-    }
-  }
-
-  Future<WorldStateModel> getWorldStateRecods() async {
-    try {
-      final response = await Dio().get(Endpoints.worldStateApi);
-      if (response.statusCode == 200) {
-        return WorldStateModel.fromJson(response.data);
-      } else {
-        throw Exception('Error');
       }
     } catch (e) {
       rethrow;

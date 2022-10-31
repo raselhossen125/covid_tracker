@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, prefer_collection_literals, unnecessary_new
+// ignore_for_file: prefer_collection_literals, unnecessary_new, file_names
 
 class WorldStateModel {
   int? updated;
@@ -11,7 +11,7 @@ class WorldStateModel {
   int? active;
   int? critical;
   int? casesPerOneMillion;
-  double? deathsPerOneMillion;
+  int? deathsPerOneMillion;
   int? tests;
   double? testsPerOneMillion;
   int? population;
@@ -57,7 +57,7 @@ class WorldStateModel {
     active = json['active'] ?? 0;
     critical = json['critical'] ?? 0;
     casesPerOneMillion = json['casesPerOneMillion'] ?? 0;
-    deathsPerOneMillion = json['deathsPerOneMillion'] ?? 0.0;
+    deathsPerOneMillion = json['deathsPerOneMillion'] ?? 0;
     tests = json['tests'] ?? 0;
     testsPerOneMillion = json['testsPerOneMillion'] ?? 0.0;
     population = json['population'] ?? 0;
