@@ -3,13 +3,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import '../network/endpoints.dart';
-import '../views/countryList/country_model.dart';
 import '../views/worldState/worldState_model.dart';
 
 class WorldStateProvider extends ChangeNotifier {
-  // CountryModel? countryModel;
-  List<CountryModel> countryModel = [];
-
   Future<WorldStateModel> getWorldStateRecods() async {
     try {
       final response = await Dio().get(Endpoints.worldStateApi);
